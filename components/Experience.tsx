@@ -286,7 +286,7 @@ export default function Experience() {
             <motion.div
               key={index}
               variants={item}
-              ref={(el) => (cardRefs.current[index] = el)}
+              ref={(el) => { cardRefs.current[index] = el }}
               className="scroll-mt-24"
             >
               <Card className="p-6 sm:p-8 shadow-md border-gray-200 overflow-hidden relative hover:shadow-lg transition-shadow duration-300">
