@@ -2,13 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
   Video, 
-  PenTool, 
-  Share2, 
-  Layout, 
-  Camera, 
-  FileText, 
-  BarChart2,
-  Users
+  Share2,   
 } from "lucide-react";
 
 export default function AdditionalSkills() {

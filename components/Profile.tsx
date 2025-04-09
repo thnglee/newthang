@@ -81,7 +81,7 @@ export default function Profile() {
               </p>
 
               <p className="text-lg text-gray-600 leading-relaxed italic border-l-4 border-gray-300 pl-4">
-                "Trẻ, khoẻ, hoang dại,... là những thứ người ta dùng để miêu tả mình chứ mình thì không"
+                &ldquo;Trẻ, khoẻ, hoang dại,... là những thứ người ta dùng để miêu tả mình chứ mình thì không&rdquo;
               </p>
             </div>
           </div>
