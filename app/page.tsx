@@ -19,7 +19,7 @@ export default function Home() {
       {/* Navigation */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-bold">Thắng "người tốt"</h1>
+          <h1 className="text-xl font-bold">Thắng &ldquo;người tốt&rdquo;</h1>
           <nav>
             <ul className="flex space-x-6">
               <li>
