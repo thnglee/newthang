@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Facebook, Instagram, Globe, MessageSquare, ExternalLink, Calendar } from "lucide-react"
+import { Facebook, Instagram, Globe, MessageSquare, ExternalLink, Calendar, Github } from "lucide-react"
 import Script from "next/script"
 import Image from "next/image"
 import { motion } from "framer-motion"
@@ -24,13 +24,14 @@ export default function Experience() {
       { threshold: 0.1 },
     )
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current)
+    const currentRef = containerRef.current
+    if (currentRef) {
+      observer.observe(currentRef)
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current)
+      if (currentRef) {
+        observer.unobserve(currentRef)
       }
     }
   }, [])
@@ -51,85 +52,10 @@ export default function Experience() {
 
   const experiences = [
     {
-      title: "Content Planner",
-      organization: "Bảo tàng dân tộc học Việt Nam",
-      project: "Trung thu 2024: Sắc màu văn hoá Hà Tĩnh",
-      description:
-        "Xây dựng masterplan truyền thông và timeline bài đăng, đóng góp và thực thi ý tưởng content, thực hiện ghi hình ngày diễn ra sự kiện",
-      socialContent: (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
-            <div
-              className="fb-post"
-              data-href="https://www.facebook.com/btdth/posts/pfbid0rDy5wWyBhbouzc92yxzG6RWRvt3Fmwy3j5W2etX4M5w123uoF32b7HbabjeUZqjfl"
-              data-width="100%"
-              data-show-text="true"
-            ></div>
-          </div>
-          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
-            <div
-              className="fb-post"
-              data-href="https://www.facebook.com/btdth/posts/pfbid0oG53yHNpcEL88aRKyAZww6nhV7XdrMsneY4CR5RcBfxWVo6cnBf87XtMJBVoUkxyl"
-              data-width="100%"
-              data-show-text="true"
-            ></div>
-          </div>
-          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
-            <div
-              className="fb-post"
-              data-href="https://www.facebook.com/btdth/posts/pfbid02nNCFfnyiCahEknkDHmtzRvCkcgJNHVpS1M8UzzCcwAEitCbnyPSCRwQdhqGs1UMwl"
-              data-width="100%"
-              data-show-text="true"
-            ></div>
-          </div>
-        </div>
-      ),
-      buttons: [
-        {
-          icon: <Facebook className="mr-2 h-4 w-4" />,
-          label: "Facebook",
-          url: "https://www.facebook.com/btdth",
-        },
-      ],
-    },
-    {
-      title: "Event Coordinator",
-      organization: "Vietnam Tech Impact Summit 2024",
-      description:
-        "Tham gia điều phối sự kiện, hỗ trợ sân khấu, đảm bảo sự kiện diễn ra đúng timeline và xử lý các sự cố phát sinh",
-      socialContent: (
-        <div className="grid grid-cols-2 gap-4">
-          <div className="aspect-square relative rounded-lg overflow-hidden shadow-md">
-            <Image
-              src="/vtis-1.png"
-              alt="VTIS 2024 Event Image 1"
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-          <div className="aspect-square relative rounded-lg overflow-hidden shadow-md">
-            <Image
-              src="/vtis-2.jpg"
-              alt="VTIS 2024 Event Image 2"
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-        </div>
-      ),
-      buttons: [
-        {
-          icon: <Globe className="mr-2 h-4 w-4" />,
-          label: "VTIS2024",
-          url: "https://vtis.io/",
-        },
-      ],
-    },
-    {
-      title: "Content Creator",
+      title: "Second-hand và áo thun",
       organization: "Giấy trắng & Mực đen",
       description:
-        "Xây dựng nội dung trending, tăng độ nhận biết với sản phẩm secondhand và áo in parody, thiết kế quảng cáo cơ bản",
+        "Đảm nhiệm tất cả các công đoạn: Tìm kiếm nguồn hàng, làm việc với xưởng in, thiết kế, làm truyền thông, vận hành quảng cáo. Tuy không đạt được thành công về doanh số nhưng đây là bài học đáng quý nhất của mình về việc kinh doanh nói chung.",
       socialContent: (
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="sm:col-span-2 grid grid-cols-2 gap-4">
@@ -209,10 +135,10 @@ export default function Experience() {
       ],
     },
     {
-      title: "Social Media",
+      title: "Dịch vụ giới thiệu gia sư",
       organization: "Gia sư Vietmentor",
       description:
-        "Làm content đa kênh cho Vietmentor (Facebook, Instagram, TikTok, Threads), thiết kế quảng cáo cơ bản.",
+        "Thiết kế website, làm content đa kênh, thiết kế và vận hành quảng cáo, trực tiếp tham gia sư vấn cho học sinh và phụ huynh về dịch vụ gia sư. Bài học thứ 2 giúp mình hiểu hơn về tầm quan trọng của đội ngũ trong việc làm truyền thông lâu dài và hiệu quả.",
       socialContent: (
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {[1, 2, 3, 4].map((index) => (
@@ -231,13 +157,274 @@ export default function Experience() {
       buttons: [
         {
           icon: <Facebook className="mr-2 h-4 w-4" />,
-          label: "Facebook",
+          label: "Gia sư VietMentor",
           url: "https://facebook.com/giasuvietmentor",
         },
         {
           icon: <MessageSquare className="mr-2 h-4 w-4" />,
           label: "Threads",
           url: "https://www.threads.net/@giasu.vietmentor",
+        },
+      ],
+    },
+    {
+      title: "Content Planner",
+      organization: "Bảo tàng dân tộc học Việt Nam",
+      project: "Trung thu 2024: Sắc màu văn hoá Hà Tĩnh",
+      description:
+        "Xây dựng masterplan truyền thông và timeline bài đăng, đóng góp và thực thi ý tưởng content, thực hiện ghi hình ngày diễn ra sự kiện",
+      socialContent: (
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
+            <div
+              className="fb-post"
+              data-href="https://www.facebook.com/btdth/posts/pfbid0rDy5wWyBhbouzc92yxzG6RWRvt3Fmwy3j5W2etX4M5w123uoF32b7HbabjeUZqjfl"
+              data-width="100%"
+              data-show-text="true"
+            ></div>
+          </div>
+          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
+            <div
+              className="fb-post"
+              data-href="https://www.facebook.com/btdth/posts/pfbid0oG53yHNpcEL88aRKyAZww6nhV7XdrMsneY4CR5RcBfxWVo6cnBf87XtMJBVoUkxyl"
+              data-width="100%"
+              data-show-text="true"
+            ></div>
+          </div>
+          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
+            <div
+              className="fb-post"
+              data-href="https://www.facebook.com/btdth/posts/pfbid02nNCFfnyiCahEknkDHmtzRvCkcgJNHVpS1M8UzzCcwAEitCbnyPSCRwQdhqGs1UMwl"
+              data-width="100%"
+              data-show-text="true"
+            ></div>
+          </div>
+        </div>
+      ),
+      buttons: [
+        {
+          icon: <Facebook className="mr-2 h-4 w-4" />,
+          label: "Facebook",
+          url: "https://www.facebook.com/btdth",
+        },
+      ],
+    },
+    {
+      title: "Media",
+      organization: "Vietnam Tech Impact Summit 2024",
+      description:
+        "Hỗ trợ JMB Media trong quá trình truyền thông tiền sự kiện và trong sự kiện. Quảng bá hình ảnh sự kiện và hội thảo do SSI tổ chức",
+      socialContent: (
+        <div className="grid grid-cols-2 gap-4">
+          <div className="aspect-square relative rounded-lg overflow-hidden shadow-md">
+            <Image
+              src="/vtis-1.png"
+              alt="VTIS 2024 Event Image 1"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <div className="aspect-square relative rounded-lg overflow-hidden shadow-md">
+            <Image
+              src="/vtis-2.jpg"
+              alt="VTIS 2024 Event Image 2"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+        </div>
+      ),
+      buttons: [
+        {
+          icon: <Globe className="mr-2 h-4 w-4" />,
+          label: "VTIS2024",
+          url: "https://vtis.io/",
+        },
+      ],
+    },
+    {
+      title: "Content Marketing",
+      organization: "TEDxVNUIS 2025",
+      description:
+        "Xây dựng Content tuyến bài Engagement, Announcement và học thuật. Hướng tới việc quảng bá hội thảo và các sự kiện tiền hội thảo",
+      socialContent: (
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
+            <div
+              className="fb-post"
+              data-href="https://www.facebook.com/photo?fbid=674549755291546&set=a.653181447428377"
+              data-width="100%"
+              data-show-text="true"
+            ></div>
+          </div>
+          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
+            <div
+              className="fb-post"
+              data-href="https://www.facebook.com/photo/?fbid=676164585130063&set=a.653181447428377"
+              data-width="100%"
+              data-show-text="true"
+            ></div>
+          </div>
+          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
+            <div
+              className="fb-post"
+              data-href="https://www.facebook.com/photo?fbid=672850745461447&set=a.653181447428377"
+              data-width="100%"
+              data-show-text="true"
+            ></div>
+          </div>
+        </div>
+      ),
+      buttons: [
+        {
+          icon: <Facebook className="mr-2 h-4 w-4" />,
+          label: "TEDxVNUIS 2025",
+          url: "https://www.facebook.com/profile.php?id=61555722330755",
+        },
+      ],
+    },
+    {
+      title: "Nền tảng lập trình",
+      organization: "Personal Projects",
+      socialContent: (
+        <div className="flex flex-col space-y-4">
+          <div className="space-y-4">
+            <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
+              <div className="flex items-start justify-between">
+                <div>
+                  <h3 className="text-xl font-semibold text-blue-600 hover:underline">
+                    <a href="https://github.com/xcviixix-rei/Talkie" target="_blank" rel="noopener noreferrer">
+                      Talkie
+                    </a>
+                  </h3>
+                  <p className="text-gray-600 mt-2">
+                    A real-time chat application built with Socket.IO and Express.js
+                  </p>
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2"
+                  onClick={() => window.open("https://github.com/xcviixix-rei/Talkie", "_blank")}
+                >
+                  <Github className="h-4 w-4" />
+                  Star
+                </Button>
+              </div>
+              <div className="mt-4 flex items-center gap-4 text-sm">
+                <div className="flex items-center gap-1">
+                  <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                  <span>JavaScript</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg height="16" viewBox="0 0 16 16" width="16" className="fill-gray-600">
+                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path>
+                  </svg>
+                  <span>23</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg height="16" viewBox="0 0 16 16" width="16" className="fill-gray-600">
+                    <path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"></path>
+                  </svg>
+                  <span>12</span>
+                </div>
+                <span className="text-gray-500">Updated 2 days ago</span>
+              </div>
+            </div>
+
+            <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
+              <div className="flex items-start justify-between">
+                <div>
+                  <h3 className="text-xl font-semibold text-blue-600 hover:underline">
+                    <a href="https://github.com/thnglee/the-reddit-stats" target="_blank" rel="noopener noreferrer">
+                      The Reddit Stats
+                    </a>
+                  </h3>
+                  <p className="text-gray-600 mt-2">
+                    A Reddit analytics tool built with React and Reddit API
+                  </p>  
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2"
+                  onClick={() => window.open("https://github.com/thnglee/the-reddit-stats", "_blank")}
+                >
+                  <Github className="h-4 w-4" />
+                  Star
+                </Button>
+              </div>
+              <div className="mt-4 flex items-center gap-4 text-sm">
+                <div className="flex items-center gap-1">
+                  <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                  <span>TypeScript</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg height="16" viewBox="0 0 16 16" width="16" className="fill-gray-600">
+                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path>
+                  </svg>
+                  <span>15</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg height="16" viewBox="0 0 16 16" width="16" className="fill-gray-600">
+                    <path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"></path>
+                  </svg>
+                  <span>8</span>
+                </div>
+                <span className="text-gray-500">Updated 5 days ago</span>
+              </div>
+            </div>
+
+            <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
+              <div className="flex items-start justify-between">
+                <div>
+                  <h3 className="text-xl font-semibold text-blue-600 hover:underline">
+                    <a href="https://github.com/thnglee/Hanoi-Bike-Day" target="_blank" rel="noopener noreferrer">
+                      Hanoi Bike Day
+                    </a>
+                  </h3>
+                  <p className="text-gray-600 mt-2">
+                    A mobile app helping cyclists in Hanoi plan rides based on weather and air quality data
+                  </p>
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2"
+                  onClick={() => window.open("https://github.com/thnglee/Hanoi-Bike-Day", "_blank")}
+                >
+                  <Github className="h-4 w-4" />
+                  Star
+                </Button>
+              </div>
+              <div className="mt-4 flex items-center gap-4 text-sm">
+                <div className="flex items-center gap-1">
+                  <div className="w-3 h-3 rounded-full bg-purple-500"></div>
+                  <span>Kotlin</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg height="16" viewBox="0 0 16 16" width="16" className="fill-gray-600">
+                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path>
+                  </svg>
+                  <span>0</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg height="16" viewBox="0 0 16 16" width="16" className="fill-gray-600">
+                    <path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"></path>
+                  </svg>
+                  <span>0</span>
+                </div>
+                <span className="text-gray-500">Updated recently</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      buttons: [
+        {
+          icon: <Github className="mr-2 h-4 w-4" />,
+          label: "GitHub Profile",
+          url: "https://github.com/thnglee",
         },
       ],
     },
