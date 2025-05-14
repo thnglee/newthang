@@ -8,23 +8,23 @@ import {
 export default function AdditionalSkills() {
   const skills = [
     {
-      category: "Thiết kế & Dựng",
+      category: "Nền tảng kỹ thuật",
       icon: <Video className="h-5 w-5" />,
       items: [
-        "Adobe Premiere Pro",
-        "Canva",
-        "Basic Photoshop",
-        "Capcut"
+        "Data Structures & Algorithms",
+        "Object-Oriented Programming",
+        "Database Management",
+        "Software Engineering"
       ]
     },
     {
-      category: "Social Media",
+      category: "Truyền thông",
       icon: <Share2 className="h-5 w-5" />,
       items: [
         "Quản trị đa kênh",
-        "Xây dựng group",
         "Sáng tạo nội dung",
-        "Vận hành quảng cáo"
+        "Vận hành quảng cáo",
+        "Xây dựng kế hoạch truyền thông"
       ]
     },
   ];
@@ -32,7 +32,7 @@ export default function AdditionalSkills() {
   return (
     <section className="py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">Kỹ nghệ bên lề</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">Kỹ năng</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skills.map((skillGroup, index) => (

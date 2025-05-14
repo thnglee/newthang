@@ -19,7 +19,7 @@ export default function Home() {
       {/* Navigation */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-bold">Thắng &ldquo;người tốt&rdquo;</h1>
+          <h1 className="text-xl font-bold">Thắng Lê</h1>
           <nav>
             <ul className="flex space-x-6">
               <li>
@@ -81,7 +81,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-gray-100 border-t border-gray-200 py-6">
         <div className="container mx-auto px-4 text-center text-gray-600">
-          <p>© {new Date().getFullYear()} My Portfolio. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} ThangLe's Portfolio. All rights reserved.</p>
         </div>
       </footer>
     </>

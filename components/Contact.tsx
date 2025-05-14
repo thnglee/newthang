@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Facebook, Instagram, Phone, Mail, ExternalLink, MapPin } from "lucide-react"
+import { Facebook, Instagram, Phone, Mail, ExternalLink, MapPin, Linkedin, Github } from "lucide-react"
 import { motion } from "framer-motion"
 
 export default function Contact() {
@@ -68,7 +68,7 @@ export default function Contact() {
                     <div className="p-2 bg-blue-500/10 rounded-lg">
                       <Facebook className="h-5 w-5 text-blue-500" />
                     </div>
-                    <h3 className="text-xl font-semibold">Connect with me</h3>
+                    <h3 className="text-xl font-semibold">Mạng xã hội</h3>
                   </div>
 
                   <div className="p-6 bg-gradient-to-br from-gray-50 to-white rounded-xl border border-gray-100 shadow-sm">
@@ -82,7 +82,7 @@ export default function Contact() {
                         Facebook
                         <ExternalLink className="ml-1.5 h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </Button>
-                      <Button
+                      {/* <Button
                         variant="outline"
                         className="flex-1 sm:flex-none group hover:bg-pink-50 hover:text-pink-600 hover:border-pink-200 transition-all duration-300"
                         onClick={() => window.open("https://www.instagram.com/thanglee_/", "_blank")}
@@ -90,12 +90,30 @@ export default function Contact() {
                         <Instagram className="mr-2 h-4 w-4" />
                         Instagram
                         <ExternalLink className="ml-1.5 h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </Button> */}
+                      <Button
+                        variant="outline"
+                        className="flex-1 sm:flex-none group hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all duration-300"
+                        onClick={() => window.open("https://www.linkedin.com/in/thang-lee-75365a258/", "_blank")}
+                      >
+                        <Linkedin className="mr-2 h-4 w-4" />
+                        LinkedIn
+                        <ExternalLink className="ml-1.5 h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="flex-1 sm:flex-none group hover:bg-gray-50 hover:text-gray-600 hover:border-gray-200 transition-all duration-300"
+                        onClick={() => window.open("https://github.com/thnglee", "_blank")}
+                      >
+                        <Github className="mr-2 h-4 w-4" />
+                        Github
+                        <ExternalLink className="ml-1.5 h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </Button>
                     </div>
 
                     <div className="mt-4 pt-4 border-t border-gray-100">
                       <p className="text-sm text-gray-500">
-                        Kết nối với mình qua mạng xã hội để cập nhật những dự án mới nhất và chia sẻ ý tưởng!
+                        Liên hệ Thắng qua bất kì nền tảng nào.
                       </p>
                     </div>
                   </div>
@@ -107,7 +125,7 @@ export default function Contact() {
                     <div className="p-2 bg-green-500/10 rounded-lg">
                       <Phone className="h-5 w-5 text-green-500" />
                     </div>
-                    <h3 className="text-xl font-semibold">Contact Information</h3>
+                    <h3 className="text-xl font-semibold">Thông tin liên hệ</h3>
                   </div>
 
                   <div className="p-6 bg-gradient-to-br from-gray-50 to-white rounded-xl border border-gray-100 shadow-sm">
@@ -146,23 +164,23 @@ export default function Contact() {
                       >
                         <div className="flex items-center">
                           <MapPin className="mr-3 h-4 w-4 text-red-500" />
-                          <span className="text-gray-700">Hanoi, Vietnam</span>
+                          <span className="text-gray-700">KTX Ngoai Ngu, 144 Xuan Thuy, Cau Giay, Hanoi, Vietnam</span>
                         </div>
                       </motion.div>
                     </div>
 
-                    <div className="mt-4 pt-4 border-t border-gray-100">
+                    {/* <div className="mt-4 pt-4 border-t border-gray-100">
                       <p className="text-sm text-gray-500">
                         Sẵn sàng trả lời mọi câu hỏi và thảo luận về cơ hội hợp tác!
                       </p>
-                    </div>
+                    </div> */}
                   </div>
                 </motion.div>
               </div>
 
               <motion.div variants={item} className="mt-8 text-center">
                 <p className="text-gray-500">
-                  Cảm ơn bạn đã ghé thăm portfolio của mình. Hãy liên hệ nếu bạn có bất kỳ câu hỏi nào!
+                  Cảm ơn bạn đã ghé thăm portfolio của Thắng. Hãy liên hệ nếu bạn có bất kì câu hỏi nào!
                 </p>
               </motion.div>
             </div>
