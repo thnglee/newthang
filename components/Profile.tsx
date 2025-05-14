@@ -78,6 +78,10 @@ export default function Profile() {
                 và sẵn sàng hiện thực hoá giấc mơ.
               </p>
 
+              <p className="text-lg text-gray-600 leading-relaxed italic border-l-4 border-gray-300 pl-4">
+                &ldquo;Trẻ, khoẻ, hoang dại,... là những thứ người ta dùng để miêu tả mình chứ mình thì không&rdquo;
+              </p>
+
             </div>
           </div>
         </Card>

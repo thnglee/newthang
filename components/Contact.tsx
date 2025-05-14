@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Facebook, Instagram, Phone, Mail, ExternalLink, MapPin, Linkedin, Github } from "lucide-react"
+import { Facebook, Phone, Mail, ExternalLink, MapPin, Linkedin, Github } from "lucide-react"
 import { motion } from "framer-motion"
 
 export default function Contact() {
@@ -20,13 +20,14 @@ export default function Contact() {
       { threshold: 0.1 },
     )
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current)
+    const currentRef = containerRef.current
+    if (currentRef) {
+      observer.observe(currentRef)
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current)
+      if (currentRef) {
+        observer.unobserve(currentRef)
       }
     }
   }, [])
@@ -82,15 +83,6 @@ export default function Contact() {
                         Facebook
                         <ExternalLink className="ml-1.5 h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </Button>
-                      {/* <Button
-                        variant="outline"
-                        className="flex-1 sm:flex-none group hover:bg-pink-50 hover:text-pink-600 hover:border-pink-200 transition-all duration-300"
-                        onClick={() => window.open("https://www.instagram.com/thanglee_/", "_blank")}
-                      >
-                        <Instagram className="mr-2 h-4 w-4" />
-                        Instagram
-                        <ExternalLink className="ml-1.5 h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </Button> */}
                       <Button
                         variant="outline"
                         className="flex-1 sm:flex-none group hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all duration-300"
