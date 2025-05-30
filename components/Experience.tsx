@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Facebook, Instagram, Globe, MessageSquare, ExternalLink, Calendar, Github } from "lucide-react"
+import { Facebook, Instagram, Globe, MessageSquare, ExternalLink, Calendar } from "lucide-react"
 import Script from "next/script"
 import Image from "next/image"
 import { motion } from "framer-motion"
