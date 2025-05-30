@@ -52,10 +52,10 @@ export default function Profile() {
 
               <div className="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
                 <Badge variant="secondary" className="bg-gray-100 text-gray-700 hover:bg-gray-200">
-                  Ứng cử sinh viên tài năng
+                  Ứng cử Social Content Creator
                 </Badge>
                 <Badge variant="secondary" className="bg-gray-100 text-gray-700 hover:bg-gray-200">
-                  NextStart Incubator
+                  VTV7
                 </Badge>
               </div>
             </div>
@@ -64,24 +64,22 @@ export default function Profile() {
             <div className="w-full md:w-2/3 space-y-5">
               <div className="space-y-2">
                 <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
-                  Xin chào NextStart Incubator, mình là Thắng Lê
+                  Xin chào VTV7, mình là Thắng Lê
                 </h1>
                 <div className="h-1 w-20 bg-gray-300 rounded-full"></div>
               </div>
 
               <p className="text-lg text-gray-600 leading-relaxed">
-                Mình muốn ứng cử "Sinh viên tài năng".
+                Mình muốn ửng cử vị trí Social Content Creator.
               </p>
 
               <p className="text-lg text-gray-600 leading-relaxed">
-                Mình là một người dám nghĩ dám làm, sẵn sàng hiện thực hoá các ý tưởng mới mẻ trong suy nghĩ dù chỉ là thoáng qua. 
-                Mình đến <strong>NextStart Incubator</strong> với mục tiêu tìm kiếm những người dẫn đường, những bạn trẻ cùng chung đam mê khởi nghiệp
-                và sẵn sàng hiện thực hoá giấc mơ.
+                Mình là một người đam mê làm hình ảnh, quay dựng và truyền thông. Kinh nghiệm của
+                mình được tích luỹ qua các dự án cá nhân cũng như những trải nghiệm làm truyền thông 
+                chuyên nghiệp tại các tổ chức uy tín.
               </p>
 
-              <p className="text-lg text-gray-600 leading-relaxed italic border-l-4 border-gray-300 pl-4">
-                &ldquo;Trẻ, khoẻ, hoang dại,... là những thứ người ta dùng để miêu tả mình chứ mình thì không&rdquo;
-              </p>
+      
 
             </div>
           </div>

@@ -8,13 +8,13 @@ import {
 export default function AdditionalSkills() {
   const skills = [
     {
-      category: "Nền tảng kỹ thuật",
+      category: "Quay dựng",
       icon: <Video className="h-5 w-5" />,
       items: [
-        "Data Structures & Algorithms",
-        "Object-Oriented Programming",
-        "Database Management",
-        "Software Engineering"
+        "Adobe Premiere",
+        "Adobe Photoshop",
+        "Canva",
+        "Capcut"
       ]
     },
     {
