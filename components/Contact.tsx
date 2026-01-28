@@ -1,184 +1,93 @@
-"use client"
+'use client';
 
-import { useState, useEffect, useRef } from "react"
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Facebook, Phone, Mail, ExternalLink, MapPin, Linkedin, Github } from "lucide-react"
-import { motion } from "framer-motion"
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Mail, Github, Linkedin, Twitter, ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
 
-export default function Contact() {
-  const [isVisible, setIsVisible] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 },
-    )
-
-    const currentRef = containerRef.current
-    if (currentRef) {
-      observer.observe(currentRef)
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef)
-      }
-    }
-  }, [])
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  }
-
-  return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8" ref={containerRef} id="contact">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-gray-900">Liên hệ Thắng</h2>
-          <div className="h-1 w-16 bg-gray-300 rounded-full mt-2"></div>
-        </div>
-
-        <motion.div variants={container} initial="hidden" animate={isVisible ? "show" : "hidden"}>
-          <Card className="p-6 sm:p-8 shadow-lg border-gray-200 overflow-hidden relative">
-            {/* Background pattern */}
-            <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-gray-100 to-transparent opacity-70 rounded-bl-full" />
-            <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-gradient-to-tr from-gray-100 to-transparent opacity-70 rounded-tr-full" />
-
-            <div className="relative z-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Social Media Links */}
-                <motion.div variants={item} className="space-y-6">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-blue-500/10 rounded-lg">
-                      <Facebook className="h-5 w-5 text-blue-500" />
-                    </div>
-                    <h3 className="text-xl font-semibold">Mạng xã hội</h3>
-                  </div>
-
-                  <div className="p-6 bg-gradient-to-br from-gray-50 to-white rounded-xl border border-gray-100 shadow-sm">
-                    <div className="flex flex-wrap gap-3">
-                      <Button
-                        variant="outline"
-                        className="flex-1 sm:flex-none group hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all duration-300"
-                        onClick={() => window.open("https://www.facebook.com/starcngdc/", "_blank")}
-                      >
-                        <Facebook className="mr-2 h-4 w-4" />
-                        Facebook
-                        <ExternalLink className="ml-1.5 h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="flex-1 sm:flex-none group hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all duration-300"
-                        onClick={() => window.open("https://www.linkedin.com/in/thang-lee-75365a258/", "_blank")}
-                      >
-                        <Linkedin className="mr-2 h-4 w-4" />
-                        LinkedIn
-                        <ExternalLink className="ml-1.5 h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="flex-1 sm:flex-none group hover:bg-gray-50 hover:text-gray-600 hover:border-gray-200 transition-all duration-300"
-                        onClick={() => window.open("https://github.com/thnglee", "_blank")}
-                      >
-                        <Github className="mr-2 h-4 w-4" />
-                        Github
-                        <ExternalLink className="ml-1.5 h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </Button>
-                    </div>
-
-                    <div className="mt-4 pt-4 border-t border-gray-100">
-                      <p className="text-sm text-gray-500">
-                        Liên hệ Thắng qua bất kì nền tảng nào.
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Contact Information */}
-                <motion.div variants={item} className="space-y-6">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-green-500/10 rounded-lg">
-                      <Phone className="h-5 w-5 text-green-500" />
-                    </div>
-                    <h3 className="text-xl font-semibold">Thông tin liên hệ</h3>
-                  </div>
-
-                  <div className="p-6 bg-gradient-to-br from-gray-50 to-white rounded-xl border border-gray-100 shadow-sm">
-                    <div className="space-y-4">
-                      <motion.div
-                        whileHover={{ x: 5 }}
-                        className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors"
-                      >
-                        <Button
-                          variant="ghost"
-                          className="w-full justify-start p-0 hover:bg-transparent"
-                          onClick={() => (window.location.href = "tel:+84981779204")}
+export function Contact() {
+    return (
+        <section id="contact" className="py-24 md:py-32 bg-obsidian text-white relative border-t border-white/5 overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 mb-20">
+                    <div className="max-w-2xl">
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            className="text-5xl md:text-8xl font-light tracking-tighter mb-8 leading-[0.9]"
                         >
-                          <Phone className="mr-3 h-4 w-4 text-green-500" />
-                          <span>+84 981779204</span>
-                        </Button>
-                      </motion.div>
+                            Let's build something <br />
+                            <span className="font-serif italic text-gold-accent">exceptional</span>.
+                        </motion.h2>
+                        <p className="text-xl text-text-body max-w-lg">
+                            Currently available for freelance projects and open to full-time opportunities.
+                        </p>
+                    </div>
 
-                      <motion.div
-                        whileHover={{ x: 5 }}
-                        className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors"
-                      >
-                        <Button
-                          variant="ghost"
-                          className="w-full justify-start p-0 hover:bg-transparent"
-                          onClick={() => (window.location.href = "mailto:lethang1281@gmail.com")}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        viewport={{ once: true }}
+                    >
+                        <a
+                            href="mailto:hello@newthang.dev"
+                            className="group relative inline-flex items-center justify-center px-8 py-4 bg-gold-accent text-black font-semibold uppercase tracking-widest text-sm overflow-hidden rounded-sm transition-transform active:scale-95"
                         >
-                          <Mail className="mr-3 h-4 w-4 text-blue-500" />
-                          <span>lethang1281@gmail.com</span>
-                        </Button>
-                      </motion.div>
+                            <span className="relative z-10 flex items-center gap-2">
+                                Start a Project
+                                <Mail className="w-4 h-4" />
+                            </span>
+                            <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-out" />
+                        </a>
+                    </motion.div>
+                </div>
 
-                      <motion.div
-                        whileHover={{ x: 5 }}
-                        className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors"
-                      >
-                        <div className="flex items-center">
-                          <MapPin className="mr-3 h-4 w-4 text-red-500" />
-                          <span className="text-gray-700">KTX Ngoai Ngu, 144 Xuan Thuy, Cau Giay, Hanoi, Vietnam</span>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-white/10">
+                    <div className="flex flex-col gap-4">
+                        <h3 className="text-sm font-mono uppercase tracking-widest text-white/50">Contact</h3>
+                        <a href="mailto:hello@newthang.dev" className="text-2xl hover:text-gold-accent transition-colors">
+                            hello@newthang.dev
+                        </a>
+                        <p className="text-text-body">+84 90 123 4567</p>
+                    </div>
+
+                    <div className="flex flex-col gap-4">
+                        <h3 className="text-sm font-mono uppercase tracking-widest text-white/50">Socials</h3>
+                        <div className="flex flex-col gap-2">
+                            <SocialLink href="https://github.com" label="GitHub" icon={Github} />
+                            <SocialLink href="https://linkedin.com" label="LinkedIn" icon={Linkedin} />
+                            <SocialLink href="https://twitter.com" label="Twitter" icon={Twitter} />
                         </div>
-                      </motion.div>
                     </div>
 
-                    {/* <div className="mt-4 pt-4 border-t border-gray-100">
-                      <p className="text-sm text-gray-500">
-                        Sẵn sàng trả lời mọi câu hỏi và thảo luận về cơ hội hợp tác!
-                      </p>
-                    </div> */}
-                  </div>
-                </motion.div>
-              </div>
+                    <div className="flex flex-col gap-4">
+                        <h3 className="text-sm font-mono uppercase tracking-widest text-white/50">Location</h3>
+                        <p className="text-2xl">Hanoi, Vietnam</p>
+                        <p className="text-text-body">Remote & Global</p>
+                    </div>
+                </div>
 
-              <motion.div variants={item} className="mt-8 text-center">
-                <p className="text-gray-500">
-                  Cảm ơn bạn đã ghé thăm portfolio của Thắng. Hãy liên hệ nếu bạn có bất kì câu hỏi nào!
-                </p>
-              </motion.div>
+                <div className="mt-24 text-center md:text-left flex flex-col md:flex-row justify-between items-center opacity-30 text-sm">
+                    <p>&copy; {new Date().getFullYear()} Newthang. All Rights Reserved.</p>
+                    <p>Designed & Developed by Thang Lee.</p>
+                </div>
             </div>
-          </Card>
-        </motion.div>
-      </div>
-    </section>
-  )
+
+            {/* Decorative background element */}
+            <div className="absolute top-1/2 right-0 -translate-y-1/2 w-1/3 h-full bg-gradient-to-l from-gold-accent/5 to-transparent pointer-events-none blur-3xl" />
+        </section>
+    );
+}
+
+function SocialLink({ href, label, icon: Icon }: { href: string, label: string, icon: any }) {
+    return (
+        <a href={href} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-text-body hover:text-white transition-colors">
+            <Icon className="w-4 h-4" />
+            <span>{label}</span>
+            <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+        </a>
+    );
 }

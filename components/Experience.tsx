@@ -1,538 +1,141 @@
-"use client"
+'use client';
 
-import { useState, useRef, useEffect } from "react"
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Facebook, Instagram, Globe, MessageSquare, ExternalLink, Calendar, Github } from "lucide-react"
-import Script from "next/script"
-import Image from "next/image"
-import { motion } from "framer-motion"
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
-export default function Experience() {
-  const [activeTab, setActiveTab] = useState(0)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
-  const [isVisible, setIsVisible] = useState(false)
+interface Experience {
+    id: string;
+    role: string;
+    company: string;
+    period: string;
+    description: string;
+    relatedLink?: string;
+    media?: {
+        type: 'image' | 'video';
+        src: string;
+    }[];
+}
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 },
-    )
-
-    const currentRef = containerRef.current
-    if (currentRef) {
-      observer.observe(currentRef)
+const experiences: Experience[] = [
+    {
+        id: '01',
+        role: 'Senior Frontend Developer',
+        company: 'TechFlow Solutions',
+        period: '2023 - Present',
+        description: 'Leading the frontend architecture migration to Next.js 15. Improved performance by 40% and established a comprehensive design system used across 5 distinct products.',
+        relatedLink: '#',
+        media: [
+            { type: 'image', src: '/vietmentor-1.png' },
+            { type: 'image', src: '/vtis-1.png' }
+        ]
+    },
+    {
+        id: '02',
+        role: 'Full Stack Engineer',
+        company: 'Creative Pulse',
+        period: '2021 - 2023',
+        description: 'Developed scalable web applications using React and Node.js. Collaborated with design teams to implement pixel-perfect, responsive interfaces for high-profile clients.'
+    },
+    {
+        id: '03',
+        role: 'Frontend Developer',
+        company: 'Digital Horizon',
+        period: '2019 - 2021',
+        description: 'Built interactive user interfaces for e-commerce platforms. Specialized in optimizing user experience and implementing accessible, semantic HTML/CSS.'
     }
+];
 
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef)
-      }
-    }
-  }, [])
+export function Experience() {
+    return (
+        <section id="experience" className="py-24 md:py-32 bg-obsidian text-white relative overflow-hidden">
+            {/* Background Texture/Gradient */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,164,126,0.05),transparent_40%)] pointer-events-none" />
 
-  const scrollToCard = (index: number) => {
-    setActiveTab(index)
-
-    if (cardRefs.current[index]) {
-      // Add a small delay to ensure state updates before scrolling
-      setTimeout(() => {
-        cardRefs.current[index]?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        })
-      }, 100)
-    }
-  }
-
-  const experiences = [
-    {
-      title: "Second-hand và áo thun",
-      organization: "Giấy trắng & Mực đen",
-      description:
-        "Đảm nhiệm tất cả các công đoạn: Tìm kiếm nguồn hàng, làm việc với xưởng in, thiết kế, làm truyền thông, vận hành quảng cáo. Tuy không đạt được thành công về doanh số nhưng đây là bài học đáng quý nhất của mình về việc kinh doanh nói chung.",
-      socialContent: (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="sm:col-span-2 grid grid-cols-2 gap-4">
-            <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
-              <blockquote
-                className="tiktok-embed"
-                cite="https://www.tiktok.com/@mucden_banao/video/7438465301202603271"
-                data-video-id="7438465301202603271"
-                style={{ maxWidth: "100%", minWidth: "100%" }}
-              >
-                <section></section>
-              </blockquote>
-            </div>
-            <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
-              <blockquote
-                className="tiktok-embed"
-                cite="https://www.tiktok.com/@mucden_banao/video/7442592931602631944"
-                data-video-id="7442592931602631944"
-                style={{ maxWidth: "100%", minWidth: "100%" }}
-              >
-                <section></section>
-              </blockquote>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <div className="aspect-square rounded-lg overflow-hidden shadow-sm border border-gray-100">
-              <blockquote
-                className="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/p/DBo2qQnzWl9/?img_index=1"
-                data-instgrm-version="14"
-                style={{
-                  background: "#FFF",
-                  border: 0,
-                  borderRadius: "8px",
-                  boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
-                  margin: "0",
-                  maxWidth: "100%",
-                  minWidth: "100%",
-                  padding: 0,
-                  width: "100%",
-                }}
-              ></blockquote>
-            </div>
-            <div className="aspect-square rounded-lg overflow-hidden shadow-sm border border-gray-100">
-              <blockquote
-                className="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/p/DDi5Qqzvoap/?img_index=1"
-                data-instgrm-version="14"
-                style={{
-                  background: "#FFF",
-                  border: 0,
-                  borderRadius: "8px",
-                  boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
-                  margin: "0",
-                  maxWidth: "100%",
-                  minWidth: "100%",
-                  padding: 0,
-                  width: "100%",
-                }}
-              ></blockquote>
-            </div>
-          </div>
-        </div>
-      ),
-      buttons: [
-        {
-          icon: <Instagram className="mr-2 h-4 w-4" />,
-          label: "Giấy Trắng",
-          url: "https://www.instagram.com/giaytrang.2hand/",
-        },
-        {
-          icon: <Instagram className="mr-2 h-4 w-4" />,
-          label: "Mực Đen",
-          url: "https://www.instagram.com/mucden.banao/",
-        },
-      ],
-    },
-    {
-      title: "Dịch vụ giới thiệu gia sư",
-      organization: "Gia sư Vietmentor",
-      description:
-        "Thiết kế website, làm content đa kênh, thiết kế và vận hành quảng cáo, trực tiếp tham gia sư vấn cho học sinh và phụ huynh về dịch vụ gia sư. Bài học thứ 2 giúp mình hiểu hơn về tầm quan trọng của đội ngũ trong việc làm truyền thông lâu dài và hiệu quả.",
-      socialContent: (
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {[1, 2, 3, 4].map((index) => (
-            <div key={index} className="aspect-square relative rounded-lg overflow-hidden shadow-md group">
-              <Image
-                src={`/vietmentor-${index}.png`}
-                alt={`Vietmentor content ${index}`}
-                fill
-                className="object-cover transition-all duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-            </div>
-          ))}
-        </div>
-      ),
-      buttons: [
-        {
-          icon: <Facebook className="mr-2 h-4 w-4" />,
-          label: "Gia sư VietMentor",
-          url: "https://facebook.com/giasuvietmentor",
-        },
-        {
-          icon: <MessageSquare className="mr-2 h-4 w-4" />,
-          label: "Threads",
-          url: "https://www.threads.net/@giasu.vietmentor",
-        },
-      ],
-    },
-    {
-      title: "Content Planner",
-      organization: "Bảo tàng dân tộc học Việt Nam",
-      project: "Trung thu 2024: Sắc màu văn hoá Hà Tĩnh",
-      description:
-        "Xây dựng masterplan truyền thông và timeline bài đăng, đóng góp và thực thi ý tưởng content, thực hiện ghi hình ngày diễn ra sự kiện",
-      socialContent: (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
-            <div
-              className="fb-post"
-              data-href="https://www.facebook.com/btdth/posts/pfbid0rDy5wWyBhbouzc92yxzG6RWRvt3Fmwy3j5W2etX4M5w123uoF32b7HbabjeUZqjfl"
-              data-width="100%"
-              data-show-text="true"
-            ></div>
-          </div>
-          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
-            <div
-              className="fb-post"
-              data-href="https://www.facebook.com/btdth/posts/pfbid0oG53yHNpcEL88aRKyAZww6nhV7XdrMsneY4CR5RcBfxWVo6cnBf87XtMJBVoUkxyl"
-              data-width="100%"
-              data-show-text="true"
-            ></div>
-          </div>
-          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
-            <div
-              className="fb-post"
-              data-href="https://www.facebook.com/btdth/posts/pfbid02nNCFfnyiCahEknkDHmtzRvCkcgJNHVpS1M8UzzCcwAEitCbnyPSCRwQdhqGs1UMwl"
-              data-width="100%"
-              data-show-text="true"
-            ></div>
-          </div>
-        </div>
-      ),
-      buttons: [
-        {
-          icon: <Facebook className="mr-2 h-4 w-4" />,
-          label: "Facebook",
-          url: "https://www.facebook.com/btdth",
-        },
-      ],
-    },
-    {
-      title: "Media",
-      organization: "Vietnam Tech Impact Summit 2024",
-      description:
-        "Hỗ trợ JMB Media trong quá trình truyền thông tiền sự kiện và trong sự kiện. Quảng bá hình ảnh sự kiện và hội thảo do SSI tổ chức",
-      socialContent: (
-        <div className="grid grid-cols-2 gap-4">
-          <div className="aspect-square relative rounded-lg overflow-hidden shadow-md">
-            <Image
-              src="/vtis-1.png"
-              alt="VTIS 2024 Event Image 1"
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-          <div className="aspect-square relative rounded-lg overflow-hidden shadow-md">
-            <Image
-              src="/vtis-2.jpg"
-              alt="VTIS 2024 Event Image 2"
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-        </div>
-      ),
-      buttons: [
-        {
-          icon: <Globe className="mr-2 h-4 w-4" />,
-          label: "VTIS2024",
-          url: "https://vtis.io/",
-        },
-      ],
-    },
-    {
-      title: "Content Marketing",
-      organization: "TEDxVNUIS 2025",
-      description:
-        "Xây dựng Content tuyến bài Engagement, Announcement và học thuật. Hướng tới việc quảng bá hội thảo và các sự kiện tiền hội thảo",
-      socialContent: (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
-            <div
-              className="fb-post"
-              data-href="https://www.facebook.com/photo?fbid=674549755291546&set=a.653181447428377"
-              data-width="100%"
-              data-show-text="true"
-            ></div>
-          </div>
-          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
-            <div
-              className="fb-post"
-              data-href="https://www.facebook.com/photo/?fbid=676164585130063&set=a.653181447428377"
-              data-width="100%"
-              data-show-text="true"
-            ></div>
-          </div>
-          <div className="rounded-lg overflow-hidden shadow-sm border border-gray-100">
-            <div
-              className="fb-post"
-              data-href="https://www.facebook.com/photo?fbid=672850745461447&set=a.653181447428377"
-              data-width="100%"
-              data-show-text="true"
-            ></div>
-          </div>
-        </div>
-      ),
-      buttons: [
-        {
-          icon: <Facebook className="mr-2 h-4 w-4" />,
-          label: "TEDxVNUIS 2025",
-          url: "https://www.facebook.com/profile.php?id=61555722330755",
-        },
-      ],
-    },
-    {
-      title: "Nền tảng lập trình",
-      organization: "Personal Projects",
-      socialContent: (
-        <div className="flex flex-col space-y-4">
-          <div className="space-y-4">
-            <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-              <div className="flex items-start justify-between">
-                <div>
-                  <h3 className="text-xl font-semibold text-blue-600 hover:underline">
-                    <a href="https://github.com/xcviixix-rei/Talkie" target="_blank" rel="noopener noreferrer">
-                      Talkie
-                    </a>
-                  </h3>
-                  <p className="text-gray-600 mt-2">
-                    A real-time chat application built with Socket.IO and Express.js
-                  </p>
-                </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="flex items-center gap-2"
-                  onClick={() => window.open("https://github.com/xcviixix-rei/Talkie", "_blank")}
+            <div className="max-w-4xl mx-auto px-6 md:px-12">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="mb-16 md:mb-24 text-center md:text-left"
                 >
-                  <Github className="h-4 w-4" />
-                  Star
-                </Button>
-              </div>
-              <div className="mt-4 flex items-center gap-4 text-sm">
-                <div className="flex items-center gap-1">
-                  <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                  <span>JavaScript</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg height="16" viewBox="0 0 16 16" width="16" className="fill-gray-600">
-                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path>
-                  </svg>
-                  <span>23</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg height="16" viewBox="0 0 16 16" width="16" className="fill-gray-600">
-                    <path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"></path>
-                  </svg>
-                  <span>12</span>
-                </div>
-                <span className="text-gray-500">Updated 2 days ago</span>
-              </div>
-            </div>
+                    <h2 className="text-4xl md:text-6xl font-light tracking-tight mb-4">
+                        Professional <span className="font-serif italic text-gold-accent">Experience</span>
+                    </h2>
+                    <p className="text-text-body/60 max-w-lg text-lg">
+                        A timeline of my professional journey and contributions.
+                    </p>
+                </motion.div>
 
-            <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-              <div className="flex items-start justify-between">
-                <div>
-                  <h3 className="text-xl font-semibold text-blue-600 hover:underline">
-                    <a href="https://github.com/thnglee/the-reddit-stats" target="_blank" rel="noopener noreferrer">
-                      The Reddit Stats
-                    </a>
-                  </h3>
-                  <p className="text-gray-600 mt-2">
-                    A Reddit analytics tool built with React and Reddit API
-                  </p>  
-                </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="flex items-center gap-2"
-                  onClick={() => window.open("https://github.com/thnglee/the-reddit-stats", "_blank")}
-                >
-                  <Github className="h-4 w-4" />
-                  Star
-                </Button>
-              </div>
-              <div className="mt-4 flex items-center gap-4 text-sm">
-                <div className="flex items-center gap-1">
-                  <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                  <span>TypeScript</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg height="16" viewBox="0 0 16 16" width="16" className="fill-gray-600">
-                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path>
-                  </svg>
-                  <span>15</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg height="16" viewBox="0 0 16 16" width="16" className="fill-gray-600">
-                    <path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"></path>
-                  </svg>
-                  <span>8</span>
-                </div>
-                <span className="text-gray-500">Updated 5 days ago</span>
-              </div>
-            </div>
+                <div className="relative border-l border-white/10 ml-3 md:ml-6 space-y-12 pl-8 md:pl-16">
+                    {/* Timeline Line */}
 
-            <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-              <div className="flex items-start justify-between">
-                <div>
-                  <h3 className="text-xl font-semibold text-blue-600 hover:underline">
-                    <a href="https://github.com/thnglee/Hanoi-Bike-Day" target="_blank" rel="noopener noreferrer">
-                      Hanoi Bike Day
-                    </a>
-                  </h3>
-                  <p className="text-gray-600 mt-2">
-                    A mobile app helping cyclists in Hanoi plan rides based on weather and air quality data
-                  </p>
-                </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="flex items-center gap-2"
-                  onClick={() => window.open("https://github.com/thnglee/Hanoi-Bike-Day", "_blank")}
-                >
-                  <Github className="h-4 w-4" />
-                  Star
-                </Button>
-              </div>
-              <div className="mt-4 flex items-center gap-4 text-sm">
-                <div className="flex items-center gap-1">
-                  <div className="w-3 h-3 rounded-full bg-purple-500"></div>
-                  <span>Kotlin</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg height="16" viewBox="0 0 16 16" width="16" className="fill-gray-600">
-                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path>
-                  </svg>
-                  <span>0</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg height="16" viewBox="0 0 16 16" width="16" className="fill-gray-600">
-                    <path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"></path>
-                  </svg>
-                  <span>0</span>
-                </div>
-                <span className="text-gray-500">Updated recently</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-      buttons: [
-        {
-          icon: <Github className="mr-2 h-4 w-4" />,
-          label: "GitHub Profile",
-          url: "https://github.com/thnglee",
-        },
-      ],
-    },
-  ]
+                    {experiences.map((exp, index) => (
+                        <motion.div
+                            key={exp.id}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            className="relative group"
+                        >
+                            {/* Dot */}
+                            <div className="absolute -left-[41px] md:-left-[73px] top-1.5 w-5 h-5 md:w-6 md:h-6 rounded-full border border-white/20 bg-obsidian group-hover:border-gold-accent group-hover:bg-gold-accent/20 transition-colors duration-300">
+                                <div className="absolute inset-0 m-auto w-1.5 h-1.5 rounded-full bg-white group-hover:bg-gold-accent transition-colors duration-300" />
+                            </div>
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
+                            <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
+                                <h3 className="text-2xl md:text-3xl font-light text-white group-hover:text-gold-accent transition-colors duration-300">
+                                    {exp.role}
+                                </h3>
+                                <span className="text-sm font-mono text-gold-accent/80 tracking-wider mt-1 md:mt-0">
+                                    {exp.period}
+                                </span>
+                            </div>
 
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  }
+                            <div className="text-lg text-white/60 mb-4 font-medium">
+                                {exp.company}
+                            </div>
 
-  return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8" ref={containerRef}>
-      <div className="max-w-6xl mx-auto space-y-12">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900">Trải nghiệm</h2>
-            <div className="h-1 w-16 bg-gray-300 rounded-full mt-2"></div>
-          </div>
+                            <p className="text-text-body leading-relaxed max-w-2xl">
+                                {exp.description}
+                            </p>
 
-          <div className="flex overflow-x-auto gap-2 pb-2 md:pb-0 no-scrollbar">
-            {experiences.map((exp, index) => (
-              <Button
-                key={index}
-                variant={activeTab === index ? "default" : "outline"}
-                className="whitespace-nowrap"
-                onClick={() => scrollToCard(index)}
-              >
-                {exp.title}
-              </Button>
-            ))}
-          </div>
-        </div>
+                            {/* Media Tiles */}
+                            {exp.media && (
+                                <div className="grid grid-cols-2 gap-4 mt-6 max-w-2xl">
+                                    {exp.media.map((item, i) => (
+                                        <div key={i} className="relative aspect-video rounded-sm overflow-hidden bg-white/5 border border-white/10 group/media">
+                                            <Image
+                                                src={item.src}
+                                                alt={`${exp.role} - Work sample ${i + 1}`}
+                                                fill
+                                                className="object-cover transition-transform duration-500 group-hover/media:scale-105"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
 
-        <motion.div variants={container} initial="hidden" animate={isVisible ? "show" : "hidden"} className="space-y-8">
-          {experiences.map((experience, index) => (
-            <motion.div
-              key={index}
-              variants={item}
-              ref={(el) => { cardRefs.current[index] = el }}
-              className="scroll-mt-24"
-            >
-              <Card className="p-6 sm:p-8 shadow-md border-gray-200 overflow-hidden relative hover:shadow-lg transition-shadow duration-300">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gray-100 to-transparent opacity-70 rounded-bl-full" />
-
-                <div className="space-y-6 relative z-10">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-xl font-semibold">{experience.title}</h3>
-                        <span className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
-                          {experience.organization}
-                        </span>
-                      </div>
-                      {experience.project && (
-                        <div className="flex items-center text-sm text-gray-500">
-                          <Calendar className="w-3.5 h-3.5 mr-1" />
-                          <span>{experience.project}</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="relative pl-4 border-l-2 border-gray-200">
-                    <p className="text-gray-600">{experience.description}</p>
-                  </div>
-
-                  <div className="pt-2">{experience.socialContent}</div>
-
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {experience.buttons.map((button, buttonIndex) => (
-                      <Button
-                        key={buttonIndex}
-                        variant="outline"
-                        className="flex-1 sm:flex-none group"
-                        onClick={() => window.open(button.url, "_blank")}
-                      >
-                        {button.icon}
-                        <span>{button.label}</span>
-                        <ExternalLink className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </Button>
+                            {/* Link Button */}
+                            {exp.relatedLink && (
+                                <div className="mt-6">
+                                    <Link
+                                        href={exp.relatedLink}
+                                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-gold-accent/30 text-white rounded-sm transition-all duration-300 group/btn"
+                                    >
+                                        <span className="text-sm font-medium tracking-wide text-white/90 group-hover:text-gold-accent transition-colors">View Project</span>
+                                        <ArrowUpRight className="w-3.5 h-3.5 text-white/70 group-hover:text-gold-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                                    </Link>
+                                </div>
+                            )}
+                        </motion.div>
                     ))}
-                  </div>
                 </div>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-
-      {/* TikTok and Instagram Scripts */}
-      <Script src="https://www.tiktok.com/embed.js" strategy="lazyOnload" />
-      <Script src="https://www.instagram.com/embed.js" strategy="lazyOnload" />
-      {/* Facebook SDK */}
-      <Script
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"
-        strategy="lazyOnload"
-        nonce="your-nonce"
-      />
-    </section>
-  )
+            </div>
+        </section>
+    );
 }
