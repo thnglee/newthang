@@ -1,11 +1,11 @@
-import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { LogoTicker } from "@/components/LogoTicker";
-import { Skills } from "@/components/Skills";
-import { Projects } from "@/components/Projects";
-import { Experience } from "@/components/Experience";
-import { Interests } from "@/components/Interests";
-import { Contact } from "@/components/Contact";
+import { Header } from "@/sections/Header";
+import { Hero } from "@/sections/Hero";
+import { LogoTicker } from "@/sections/LogoTicker";
+import { Skills } from "@/sections/Skills";
+import { Projects } from "@/sections/Projects";
+import { Experience } from "@/sections/Experience";
+import { Interests } from "@/sections/Interests";
+import { Contact } from "@/sections/Contact";
 
 export default function Home() {
   return (
