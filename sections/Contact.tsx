@@ -16,7 +16,7 @@ export function Contact() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
-                            className="text-5xl md:text-8xl font-light tracking-tighter mb-8 leading-[0.9]"
+                            className="text-4xl md:text-8xl font-light tracking-tighter mb-8 leading-[0.9]"
                         >
                             Let's build something <br />
                             <span className="font-serif italic text-gold-accent">exceptional</span>.

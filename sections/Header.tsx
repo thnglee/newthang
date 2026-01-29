@@ -21,7 +21,7 @@ export function Header() {
         <>
             <header className="fixed top-0 left-0 right-0 z-50 flex justify-center py-6 pointer-events-none">
                 {/* Unified Header Container - Pointer events auto */}
-                <div className="pointer-events-auto flex items-center gap-8 pl-6 pr-1 py-1 bg-black/20 backdrop-blur-md border border-white/10 rounded-sm">
+                <div className="pointer-events-auto flex items-center gap-8 px-4 md:pl-6 md:pr-1 py-1 bg-black/20 backdrop-blur-md border border-white/10 rounded-sm">
 
                     {/* Logo */}
                     <Link href="/" className="text-xl font-bold tracking-tight text-white">

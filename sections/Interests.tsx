@@ -47,7 +47,7 @@ export function Interests() {
     return (
         <section id="interests" className="py-24 md:py-32 bg-obsidian text-white border-t border-white/5">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
-                <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-end gap-6">
+                <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
                     <div>
                         <h2 className="text-4xl md:text-6xl font-light tracking-tight mb-4">
                             Personal <span className="font-serif italic text-gold-accent">Interests</span>
