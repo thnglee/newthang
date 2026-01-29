@@ -23,13 +23,13 @@ export function Hero() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                     <h2 className="text-gold-accent text-sm md:text-base tracking-[0.2em] uppercase mb-4">
-                        Full Stack Developer
+                        Frontend Developer for PATI
                     </h2>
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif italic mb-2 tracking-tight">
                         Thắng Lê
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-400 font-light tracking-wide mb-8">
-                        Crafting digital experiences with <span className="text-white font-normal">Next.js</span> & <span className="text-white font-normal">Tailwind</span>
+                        Scaling social impact through <span className="text-white font-normal">Ethical AI</span> & <span className="text-white font-normal">Customer-Centered Design</span>
                     </p>
                 </motion.div>
 
@@ -42,10 +42,10 @@ export function Hero() {
                     {/* Logo Strip (Placeholder for now) */}
                     <div className="w-full flex justify-center gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
                         {/* Add Logo SVGs here later */}
-                        <span>Next.js</span>
-                        <span>React</span>
-                        <span>TypeScript</span>
-                        <span>Tailwind</span>
+                        <span>Frontend</span>
+                        <span>Ecommerce</span>
+                        <span>Content</span>
+                        <span>Finance</span>
                     </div>
                 </motion.div>
             </div>

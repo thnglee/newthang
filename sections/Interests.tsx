@@ -2,44 +2,26 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Camera, Music, Book, Cpu, Mountain, Code } from 'lucide-react';
+import { Mountain, Dumbbell, Trophy } from 'lucide-react';
 
 const interests = [
     {
         id: '01',
-        name: 'Photography',
-        icon: Camera,
-        description: 'Capturing urban landscapes and street noir.'
+        name: 'Outdoors',
+        icon: Mountain,
+        description: 'Hiking, camping, and exploring anything outside the office.'
     },
     {
         id: '02',
-        name: 'Synthesizers',
-        icon: Music,
-        description: 'Exploring analog sound design and modular synthesis.'
+        name: 'Hit the gym',
+        icon: Dumbbell,
+        description: 'Part of my daily routine'
     },
     {
         id: '03',
-        name: 'Sci-Fi Literature',
-        icon: Book,
-        description: 'Reading classics from Asimov, Philip K. Dick, and Gibson.'
-    },
-    {
-        id: '04',
-        name: 'Tech Hardware',
-        icon: Cpu,
-        description: 'Building custom mechanical keyboards and PC rigs.'
-    },
-    {
-        id: '05',
-        name: 'Hiking',
-        icon: Mountain,
-        description: 'Seeking silence in high-altitude environments.'
-    },
-    {
-        id: '06',
-        name: 'Open Source',
-        icon: Code,
-        description: 'Contributing to developer tools and libraries.'
+        name: 'Sports',
+        icon: Trophy,
+        description: "Troublesome badminton rival, soccer's excellent striker"
     }
 ];
 
@@ -50,10 +32,10 @@ export function Interests() {
                 <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
                     <div>
                         <h2 className="text-4xl md:text-6xl font-light tracking-tight mb-4">
-                            Personal <span className="font-serif italic text-gold-accent">Interests</span>
+                            Other <span className="font-serif italic text-gold-accent">Interests</span>
                         </h2>
                         <p className="text-text-body/60 max-w-lg text-lg">
-                            Beyond keyframes and components.
+                            This section might be considered proof that I can fit in real quick with PATI culture.
                         </p>
                     </div>
                 </div>

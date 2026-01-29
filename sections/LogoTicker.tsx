@@ -4,12 +4,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const companies = [
-    'Vingroup',
-    'FPT Software',
-    'Viettel',
-    'Tiki',
-    'MoMo',
-    'Zalo',
+    'Tai Chinh Xanh JSC.',
+    'NextStart Incubator',
+    'ThinkMay CO.,LTD',
     // duplicates for seamless loop if needed, but we'll use a track
 ];
 

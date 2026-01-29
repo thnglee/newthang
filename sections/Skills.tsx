@@ -28,7 +28,7 @@ const skills = [
 
 export function Skills() {
     return (
-        <section className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <section className="pt-24 md:pt-32 pb-12 md:pb-16 px-6 md:px-12 max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {skills.map((skill, index) => (
                     <motion.div

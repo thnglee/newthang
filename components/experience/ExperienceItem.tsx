@@ -12,7 +12,12 @@ export interface Experience {
     company: string;
     period: string;
     description: string;
-    relatedLink?: string;
+    location?: string;
+    skills?: string[];
+    links?: {
+        text: string;
+        url: string;
+    }[];
     media?: {
         type: 'image' | 'video';
         src: string;
@@ -42,18 +47,37 @@ export function ExperienceItem({ experience, index }: ExperienceItemProps) {
                 <h3 className="text-2xl md:text-3xl font-light text-white group-hover:text-gold-accent transition-colors duration-300">
                     {experience.role}
                 </h3>
-                <span className="text-sm font-mono text-gold-accent/80 tracking-wider mt-1 md:mt-0">
-                    {experience.period}
-                </span>
+                <div className="flex flex-col md:items-end">
+                    <span className="text-sm font-mono text-gold-accent/80 tracking-wider mt-1 md:mt-0">
+                        {experience.period}
+                    </span>
+                    {experience.location && (
+                        <span className="text-xs text-white/40 mt-0.5">
+                            {experience.location}
+                        </span>
+                    )}
+                </div>
             </div>
 
             <div className="text-lg text-white/60 mb-4 font-medium">
                 {experience.company}
             </div>
 
-            <p className="text-text-body leading-relaxed max-w-2xl">
+            <p className="text-text-body leading-relaxed max-w-2xl mb-4">
                 {experience.description}
             </p>
+
+            {/* Skills */}
+            {experience.skills && (
+                <div className="flex flex-wrap gap-2 mb-6 max-w-2xl">
+                    <span className="text-sm text-white/60 mr-2">Gained skills:</span>
+                    {experience.skills.map((skill, i) => (
+                        <span key={i} className="text-sm text-gold-accent/90">
+                            {skill}{i < experience.skills!.length - 1 ? ', ' : ''}
+                        </span>
+                    ))}
+                </div>
+            )}
 
             {/* Media Tiles */}
             {experience.media && (
@@ -71,16 +95,19 @@ export function ExperienceItem({ experience, index }: ExperienceItemProps) {
                 </div>
             )}
 
-            {/* Link Button */}
-            {experience.relatedLink && (
-                <div className="mt-6">
-                    <Link
-                        href={experience.relatedLink}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-gold-accent/30 text-white rounded-sm transition-all duration-300 group/btn"
-                    >
-                        <span className="text-sm font-medium tracking-wide text-white/90 group-hover:text-gold-accent transition-colors">View Project</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-white/70 group-hover:text-gold-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                    </Link>
+            {/* Link Buttons */}
+            {experience.links && (
+                <div className="mt-6 flex flex-wrap gap-4">
+                    {experience.links.map((link, i) => (
+                        <Link
+                            key={i}
+                            href={link.url}
+                            className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-gold-accent/30 text-white rounded-sm transition-all duration-300 group/btn"
+                        >
+                            <span className="text-sm font-medium tracking-wide text-white/90 group-hover:text-gold-accent transition-colors">{link.text}</span>
+                            <ArrowUpRight className="w-3.5 h-3.5 text-white/70 group-hover:text-gold-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                        </Link>
+                    ))}
                 </div>
             )}
         </motion.div>

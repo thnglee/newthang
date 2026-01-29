@@ -39,7 +39,7 @@ const projects: Project[] = [
 
 export function Projects() {
     return (
-        <section id="projects" className="py-24 md:py-32 bg-obsidian">
+        <section id="projects" className="pt-12 md:pt-16 pb-24 md:pb-32 bg-obsidian">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 <div className="flex flex-row justify-between items-end mb-16 gap-8 border-b border-white/10 pb-8">
                     <div>

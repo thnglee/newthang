@@ -7,29 +7,54 @@ import { ExperienceItem, Experience as ExperienceType } from '@/components/exper
 const experiences: ExperienceType[] = [
     {
         id: '01',
-        role: 'Senior Frontend Developer',
-        company: 'TechFlow Solutions',
-        period: '2023 - Present',
-        description: 'Leading the frontend architecture migration to Next.js 15. Improved performance by 40% and established a comprehensive design system used across 5 distinct products.',
-        relatedLink: '#',
+        role: 'Finance & E-commerce Operations',
+        company: 'Tai Chinh Xanh JSC.',
+        period: '09/2025 – 02/2026',
+        location: 'Ha Noi',
+        description: 'During this period of time, I had the opportunity to work alongside many talented individuals from the start-up ecosystem. I played a vital role in this business by managing the daily operations of finance and e-commerce. Our first brand, Softie, develops biological cleaning products powered by natural enzymes was getting attention from angle investors at the time.',
+        skills: ['E-commerce', 'Management Accounting'],
+        links: [
+            { text: 'Website', url: 'https://www.taichinhxanh.info/' },
+            { text: 'Article', url: 'https://tienphong.vn/nhung-ong-chu-sinh-vien-khoi-nghiep-xanh-post1802928.tpo?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNDM3NjI2MzE2OTczNzg4AAEeGkoYZZsUdFcfhb7no7_bJsMJtXoL5ZxRInEbC4s2ldDWgwgD3kJzRwZS1XQ_aem_ZkNh2DnUVBg-S98zMQdueQ' }
+        ],
         media: [
-            { type: 'image', src: '/vietmentor-1.png' },
-            { type: 'image', src: '/vtis-1.png' }
+            { type: 'image', src: '/tcx.jpg' },
+            { type: 'image', src: '/sof.jpg' }
         ]
     },
     {
         id: '02',
-        role: 'Full Stack Engineer',
-        company: 'Creative Pulse',
-        period: '2021 - 2023',
-        description: 'Developed scalable web applications using React and Node.js. Collaborated with design teams to implement pixel-perfect, responsive interfaces for high-profile clients.'
+        role: 'Batch-1 Member - Tech Business Development',
+        company: 'NextStart Incubator',
+        period: '06/2025 – 10/2025',
+        location: 'Hanoi',
+        description: 'Within 4 months of crashing and burning, I’ve dived deep into the startup world — from market research and business ideation to product development and marketing. I failed often, learned fast, and grew even faster. Beyond building projects, I built resilience, adaptability, and a founder’s mindset. Most of all, I met incredible peers and discovered how beautiful the chaos of building something from nothing can be. ',
+        skills: ['Front-end Development', 'DevOps', 'Business Development'],
+        links: [
+            { text: 'Article', url: 'https://trading.vietcap.com.vn/ai-news/post-detail/nextstart-incubator-vuon-uom-tai-nang-khoi-nghiep-chao-don-khoa-dau-tien' },
+            { text: 'Project', url: 'nextcapy.studio' }
+        ],
+        media: [
+            { type: 'image', src: '/ns.jpg' },
+            { type: 'image', src: '/nss.jpg' }
+        ]
     },
     {
         id: '03',
-        role: 'Frontend Developer',
-        company: 'Digital Horizon',
-        period: '2019 - 2021',
-        description: 'Built interactive user interfaces for e-commerce platforms. Specialized in optimizing user experience and implementing accessible, semantic HTML/CSS.'
+        role: 'VJ - Content Creator, UI/UX Testing, Bug Reporting',
+        company: 'Thinkmay CO.,LTD',
+        period: '06/2025 – 09/2025',
+        location: 'Hanoi',
+        description: 'I worked directly with the CEO to align creative content with broader business objectives and market positioning strategies. I also managed the end-to-end creative process, from conceptualization to final production, in short to make things grow. Other time I conducted UI testing of landing page to optimize convesion rate and ensure smooth user experience.',
+        skills: ['Content Ideation & Production', 'Data-driven Decision Making'],
+        links: [
+            { text: 'Website', url: 'https://thinkmay.net/' },
+            { text: 'Tiktok', url: 'https://www.tiktok.com/@thangoncloud' },
+        ],
+        media: [
+            { type: 'image', src: '/1.png' },
+            { type: 'image', src: '/2.png' }
+        ]
     }
 ];
 

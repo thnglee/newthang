@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Twitter, ArrowUpRight } from 'lucide-react';
+import { Mail, Github, Linkedin, Twitter, ArrowUpRight, Facebook } from 'lucide-react';
 import Link from 'next/link';
 
 export function Contact() {
@@ -18,11 +18,12 @@ export function Contact() {
                             viewport={{ once: true }}
                             className="text-4xl md:text-8xl font-light tracking-tighter mb-8 leading-[0.9]"
                         >
-                            Let's build something <br />
+                            Dear PATI - Let's build something <br />
                             <span className="font-serif italic text-gold-accent">exceptional</span>.
                         </motion.h2>
                         <p className="text-xl text-text-body max-w-lg">
-                            Currently available for freelance projects and open to full-time opportunities.
+                            I'm open to full-time positions. Willing to relocate for the right opportunities.
+                            As long as I can deep dive into any thriving business model, I'll give it my fullest.
                         </p>
                     </div>
 
@@ -37,7 +38,7 @@ export function Contact() {
                             className="group relative inline-flex items-center justify-center px-8 py-4 bg-gold-accent text-black font-semibold uppercase tracking-widest text-sm overflow-hidden rounded-sm transition-transform active:scale-95"
                         >
                             <span className="relative z-10 flex items-center gap-2">
-                                Start a Project
+                                Contact me
                                 <Mail className="w-4 h-4" />
                             </span>
                             <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-out" />
@@ -49,30 +50,30 @@ export function Contact() {
                     <div className="flex flex-col gap-4">
                         <h3 className="text-sm font-mono uppercase tracking-widest text-white/50">Contact</h3>
                         <a href="mailto:hello@newthang.dev" className="text-2xl hover:text-gold-accent transition-colors">
-                            hello@newthang.dev
+                            lethang1281@gmail.com
                         </a>
-                        <p className="text-text-body">+84 90 123 4567</p>
+                        <p className="text-text-body">0981779204</p>
                     </div>
 
                     <div className="flex flex-col gap-4">
                         <h3 className="text-sm font-mono uppercase tracking-widest text-white/50">Socials</h3>
                         <div className="flex flex-col gap-2">
-                            <SocialLink href="https://github.com" label="GitHub" icon={Github} />
-                            <SocialLink href="https://linkedin.com" label="LinkedIn" icon={Linkedin} />
-                            <SocialLink href="https://twitter.com" label="Twitter" icon={Twitter} />
+                            <SocialLink href="https://github.com/thnglee" label="GitHub" icon={Github} />
+                            <SocialLink href="https://www.linkedin.com/in/thang-lee-75365a258/" label="LinkedIn" icon={Linkedin} />
+                            <SocialLink href="https://www.facebook.com/starcngdc" label="Facebook" icon={Facebook} />
                         </div>
                     </div>
 
                     <div className="flex flex-col gap-4">
                         <h3 className="text-sm font-mono uppercase tracking-widest text-white/50">Location</h3>
                         <p className="text-2xl">Hanoi, Vietnam</p>
-                        <p className="text-text-body">Remote & Global</p>
+                        <p className="text-text-body">On-site & Remote & Global</p>
                     </div>
                 </div>
 
                 <div className="mt-24 text-center md:text-left flex flex-col md:flex-row justify-between items-center opacity-30 text-sm">
                     <p>&copy; {new Date().getFullYear()} Newthang. All Rights Reserved.</p>
-                    <p>Designed & Developed by Thang Lee.</p>
+                    <p>Designed & Developed by Thang Lee. (for PATI)</p>
                 </div>
             </div>
 
