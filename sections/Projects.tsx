@@ -8,7 +8,7 @@ import { projects } from '@/data/projects';
 
 export function Projects() {
     return (
-        <section id="projects" className="pt-24 md:pt-32 pb-24 md:pb-32 bg-obsidian">
+        <section id="projects" className="pt-24 md:pt-32 bg-obsidian">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 <div className="flex flex-row justify-between items-end mb-16 gap-8 border-b border-white/10 pb-8">
                     <div>
@@ -32,7 +32,7 @@ export function Projects() {
                     >
                         <div className="flex items-center justify-center p-8 md:p-12">
                             <p className="text-base md:text-lg text-gray-400 font-light leading-relaxed text-center font-serif italic max-w-3xl">
-                                "Beside these 3 projects, I also joined in multiple projects with Xpath, Thinkmay, NextTech, which I'm not able to showcase any past progress..."
+                                "Beside these 3 projects, I also played core-team roles in multiple projects with Xpath, Thinkmay, NextTech, which I'm not able to showcase any past progress..."
                             </p>
                         </div>
                     </motion.div>

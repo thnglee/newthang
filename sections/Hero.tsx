@@ -10,7 +10,7 @@ export function Hero() {
             <div className="absolute inset-0 z-0">
                 <div
                     className="absolute inset-0 bg-cover bg-center opacity-20"
-                    style={{ backgroundImage: 'url(/hero-ghost.jpg)' }} // Placeholder, user needs to add image
+                // style={{ backgroundImage: 'url(/hero-ghost.jpg)' }} // Placeholder, user needs to add image
                 />
                 {/* Gradient Fade to Black */}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-obsidian/80 to-obsidian" />
