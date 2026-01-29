@@ -7,6 +7,7 @@ const companies = [
     'Tai Chinh Xanh JSC.',
     'NextStart Incubator',
     'ThinkMay CO.,LTD',
+    'Xpath  '
     // duplicates for seamless loop if needed, but we'll use a track
 ];
 

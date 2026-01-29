@@ -53,7 +53,7 @@ const experiences: ExperienceType[] = [
         ],
         media: [
             { type: 'image', src: '/1.png' },
-            { type: 'image', src: '/2.png' }
+            { type: 'image', src: '/tmay.png' }
         ]
     }
 ];

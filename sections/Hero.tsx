@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export function Hero() {
     return (
-        <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 overflow-hidden">
+        <section className="relative min-h-screen flex flex-col items-center justify-center py-24 overflow-hidden">
             {/* Ghost Image Background */}
             <div className="absolute inset-0 z-0">
                 <div
@@ -29,7 +29,7 @@ export function Hero() {
                         Thắng Lê
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-400 font-light tracking-wide mb-8">
-                        Scaling social impact through <span className="text-white font-normal">Ethical AI</span> & <span className="text-white font-normal">Customer-Centered Design</span>
+                        Expanding your reach through <span className="text-white font-normal">Ethical AI</span> & <span className="text-white font-normal">Customer-Centered Design</span>
                     </p>
                 </motion.div>
 
@@ -44,7 +44,6 @@ export function Hero() {
                         {/* Add Logo SVGs here later */}
                         <span>Frontend</span>
                         <span>Ecommerce</span>
-                        <span>Content</span>
                         <span>Finance</span>
                     </div>
                 </motion.div>

@@ -8,27 +8,32 @@ import Link from 'next/link';
 const skills = [
     {
         id: '01',
-        title: 'Web Design',
-        description: 'Visually stunning web designs that captivate your audience by blending your brand voice and customer needs.',
-        href: '/#web-design'
+        title: 'Software Architecture & Frontend',
+        description: 'Building scalable web architectures using React and Next.js, focusing on high-performance interfaces that bridge technical complexity with seamless user experience.',
+        href: '/#software-architecture'
     },
     {
         id: '02',
-        title: 'Development',
-        description: 'Get custom web development solutions that are tailored to your specifications, designed to deliver a flawless user experience.',
-        href: '/#development'
+        title: 'Ecommerce Operations',
+        description: 'Executing Ecommerce plans and strategies to drive sales and growth.',
+        href: '/#ecommerce'
     },
     {
         id: '03',
-        title: 'Content & SEO',
-        description: 'Proven SEO strategies that enhance your online performance, bringing you to the forefront of organic search results.',
-        href: '/#content-seo'
+        title: 'Finance',
+        description: 'Leveraging data-driven insights from management accounting to analyze unit economics, break-even points, and drive strategic business growth.',
+        href: '/#finance'
     }
 ];
 
 export function Skills() {
     return (
-        <section className="pt-24 md:pt-32 pb-12 md:pb-16 px-6 md:px-12 max-w-7xl mx-auto">
+        <section className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+            <div className="mb-12 md:mb-16">
+                <h2 className="text-4xl md:text-6xl font-light tracking-tight text-white mb-4">
+                    My <span className="font-serif italic text-gold-accent">Skills</span>
+                </h2>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {skills.map((skill, index) => (
                     <motion.div
@@ -52,15 +57,7 @@ export function Skills() {
                                 </p>
                             </div>
 
-                            <Link
-                                href={skill.href}
-                                className="flex items-center gap-3 text-xs md:text-sm text-gray-500 group-hover:text-white transition-colors uppercase tracking-wider"
-                            >
-                                <div className="p-2 rounded-full border border-white/10 group-hover:border-gold-accent group-hover:bg-gold-accent/10 transition-colors">
-                                    <ArrowUpRight className="w-4 h-4 group-hover:text-gold-accent" />
-                                </div>
-                                About {skill.title}
-                            </Link>
+
                         </div>
                     </motion.div>
                 ))}

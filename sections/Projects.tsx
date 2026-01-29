@@ -1,45 +1,14 @@
 'use client';
 
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
-import { ProjectCard, Project } from '@/components/projects/ProjectCard';
-
-const projects: Project[] = [
-    {
-        id: '01',
-        title: 'VietMentor',
-        category: 'EDTECH PLATFORM',
-        image: '/vietmentor-1.png',
-        video: '/something_stupid.mp4',
-        href: '#'
-    },
-    {
-        id: '02',
-        title: 'VTIS',
-        category: 'TRANSPORT SOLUTIONS',
-        image: '/vtis-1.png',
-        href: '#'
-    },
-    {
-        id: '03',
-        title: 'VietMentor Mobile',
-        category: 'UI/UX DESIGN',
-        image: '/vietmentor-2.png',
-        href: '#'
-    },
-    {
-        id: '04',
-        title: 'VTIS Admin',
-        category: 'SYSTEM ARCHITECTURE',
-        image: '/vtis-2.jpg',
-        href: '#'
-    }
-];
+import { ProjectRow } from '@/components/projects/ProjectRow';
+import { motion } from 'framer-motion';
+import { projects } from '@/data/projects';
 
 export function Projects() {
     return (
-        <section id="projects" className="pt-12 md:pt-16 pb-24 md:pb-32 bg-obsidian">
+        <section id="projects" className="pt-24 md:pt-32 pb-24 md:pb-32 bg-obsidian">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 <div className="flex flex-row justify-between items-end mb-16 gap-8 border-b border-white/10 pb-8">
                     <div>
@@ -47,21 +16,26 @@ export function Projects() {
                             Selected <span className="font-serif italic text-gold-accent">Work</span>
                         </h2>
                     </div>
-                    <Link
-                        href="/projects"
-                        className="group flex items-center gap-3 text-white/70 hover:text-gold-accent transition-colors duration-300 pb-2"
-                    >
-                        <div className="w-8 h-8 rounded-full border border-current flex items-center justify-center group-hover:bg-gold-accent group-hover:border-gold-accent group-hover:text-black transition-all duration-300">
-                            <ArrowUpRight className="w-4 h-4" />
-                        </div>
-                        <span className="uppercase tracking-widest text-sm font-medium">See All</span>
-                    </Link>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+                <div className="flex flex-col">
                     {projects.map((project, index) => (
-                        <ProjectCard key={project.id} project={project} index={index} />
+                        <ProjectRow key={project.id} project={project} index={index} />
                     ))}
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="border-b border-white/10 py-8"
+                    >
+                        <div className="flex items-center justify-center p-8 md:p-12">
+                            <p className="text-base md:text-lg text-gray-400 font-light leading-relaxed text-center font-serif italic max-w-3xl">
+                                "Beside these 3 projects, I also joined in multiple projects with Xpath, Thinkmay, NextTech, which I'm not able to showcase any past progress..."
+                            </p>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
