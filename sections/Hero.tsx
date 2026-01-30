@@ -23,7 +23,7 @@ export function Hero() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                     <h2 className="text-gold-accent text-sm md:text-base tracking-[0.2em] uppercase mb-4">
-                        Frontend Developer for PATI
+                        APPLYING FOR "AI THỰC CHIẾN" BY VINUNI
                     </h2>
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif italic mb-2 tracking-tight">
                         Thắng Lê

@@ -44,7 +44,7 @@ export const projects: Project[] = [
         My task was to fully customize the UI/UX into a Vietnamese-friendly version while deploying the system on a customized server to analyze token usages and costs of different LLMs.`,
         techStack: ["Vue.js", "Python", "Docker", "Digital Ocean"],
         externalLink: "https://nextcapy.studio",
-        githubLink: "https://github.com/NextCapy/capy-client",
+        githubLink: "https://github.com/NextCapy/capy-server",
         gallery: [
             '/capy/capy2.jpg'
         ],

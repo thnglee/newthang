@@ -35,7 +35,7 @@ export function Interests() {
                             Other <span className="font-serif italic text-gold-accent">Interests</span>
                         </h2>
                         <p className="text-text-body/60 max-w-lg text-lg">
-                            This section might be considered proof that I can fit in real quick with PATI culture.
+                            This section might be considered proof that I can fit in real quick with VinUni culture.
                         </p>
                     </div>
                 </div>

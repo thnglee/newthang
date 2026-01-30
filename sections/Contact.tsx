@@ -18,7 +18,7 @@ export function Contact() {
                             viewport={{ once: true }}
                             className="text-4xl md:text-8xl font-light tracking-tighter mb-8 leading-[0.9]"
                         >
-                            Dear PATI - Let's build something <br />
+                            Dear VinUni - Let's build something <br />
                             <span className="font-serif italic text-gold-accent">exceptional</span>.
                         </motion.h2>
                         <p className="text-xl text-text-body max-w-lg">
@@ -73,7 +73,7 @@ export function Contact() {
 
                 <div className="mt-24 text-center md:text-left flex flex-col md:flex-row justify-between items-center opacity-30 text-sm">
                     <p>&copy; {new Date().getFullYear()} Newthang. All Rights Reserved.</p>
-                    <p>Designed & Developed by Thang Lee. (for PATI)</p>
+                    <p>Designed & Developed by Thang Lee. (for VinUni)</p>
                 </div>
             </div>
 
