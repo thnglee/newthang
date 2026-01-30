@@ -45,7 +45,7 @@ const experiences: ExperienceType[] = [
         company: 'Thinkmay CO.,LTD',
         period: '06/2025 – 09/2025',
         location: 'Hanoi',
-        description: 'I worked directly with the CEO to align creative content with broader business objectives and market positioning strategies. I also managed the end-to-end creative process, from conceptualization to final production, in short to make things grow. Other time I conducted UI testing of landing page to optimize convesion rate and ensure smooth user experience.',
+        description: 'I worked directly with the CEO to align creative content with broader business objectives and market positioning strategies. I also managed the end-to-end creative process, from conceptualization to final production, in short to make things grow. Other time I conducted UI testing of landing page to optimize conversion rate and ensure smooth user experience.',
         skills: ['Content Ideation & Production', 'Data-driven Decision Making'],
         links: [
             { text: 'Website', url: 'https://thinkmay.net/' },
