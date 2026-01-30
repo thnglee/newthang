@@ -6,9 +6,9 @@ import { ArrowLeft, ArrowUpRight, Github } from 'lucide-react';
 import { projects } from '@/data/projects';
 
 interface ProjectPageProps {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
 export async function generateStaticParams() {
